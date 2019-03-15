@@ -1,3 +1,3 @@
 # dockerfiles
 
-Repository of useful Docker recipes
+Repository of useful Docker recipes.
