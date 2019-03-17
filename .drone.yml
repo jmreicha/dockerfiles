@@ -11,5 +11,3 @@ pipeline:
       - docker build -t jmreicha/debug:latest-arm64
       - docker push jmreicha/debug:latest-arm64
       - docker rmi jmreicha/debug:latest-arm64
-    when:
-      branch: master
