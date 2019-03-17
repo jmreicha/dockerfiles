@@ -8,6 +8,6 @@ pipeline:
       DOCKER_PASSWORD: "${DH_PASS}"
     commands:
       - docker login -u "$DH_USER" -p "$DH_PASS"
-      - docker build -t jmreicha/debug:latest-arm64
+      - cd debug; docker build -t jmreicha/debug:latest-arm64 .
       - docker push jmreicha/debug:latest-arm64
       - docker rmi jmreicha/debug:latest-arm64
