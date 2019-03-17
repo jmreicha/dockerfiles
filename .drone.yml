@@ -1,13 +1,18 @@
+#pipeline:
+#  publish:
+#    image: docker
+#    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
+#    secrets: ['DH_USER', 'DH_PASS']
+#    environment:
+#      DOCKER_USERNAME: "${DH_USER}"
+#      DOCKER_PASSWORD: "${DH_PASS}"
+#    commands:
+#      - docker login -u "$DH_USER" -p "$DH_PASS"
+#      - cd debug; docker build -t jmreicha/debug:latest-arm64 .
+#      - docker push jmreicha/debug:latest-arm64
+#      - docker rmi jmreicha/debug:latest-arm64
+
 pipeline:
-  publish:
-    image: docker
-    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
-    secrets: ['DH_USER', 'DH_PASS']
-    environment:
-      DOCKER_USERNAME: "${DH_USER}"
-      DOCKER_PASSWORD: "${DH_PASS}"
-    commands:
-      - docker login -u "$DH_USER" -p "$DH_PASS"
-      - cd debug; docker build -t jmreicha/debug:latest-arm64 .
-      - docker push jmreicha/debug:latest-arm64
-      - docker rmi jmreicha/debug:latest-arm64
+  build:
+    image: node:latest
+    commands: npm
