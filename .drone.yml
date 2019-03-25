@@ -10,12 +10,10 @@ steps:
 - name: publish_debug_image
   image: plugins/docker
   settings:
-    auto_tag: true
-    auto_tag_suffix: arm64
+    repo: jmreicha/debug
+    tags: arm64
     dockerfile: debug/Dockerfile
     username:
       from_secret: DH_USER
     password:
       from_secret: DH_PASS
-    repo: jmreicha/debug
-    
