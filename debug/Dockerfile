@@ -14,7 +14,6 @@ FROM alpine:latest
 
 RUN apk add --no-cache \
 	openssl \
-	iproute2 \
 	openssh-client \
 	tshark \
 	tcpdump \
