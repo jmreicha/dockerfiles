@@ -12,6 +12,7 @@
 #      - docker push jmreicha/debug:latest-arm64
 #      - docker rmi jmreicha/debug:latest-arm64
 
+---
 kind: pipeline
 name: default
 
@@ -20,7 +21,15 @@ platform:
   arch: arm64
   
 steps:
-- name: build
-  image: node:latest
-  commands:
-  - npm
+- name: publish_debug_image
+  image: plugins/docker
+  settings:
+    auto_tag: true
+    auto_tag_suffix: arm64
+    dockerfile: debug/Dockerfile
+    username:
+      from_secret: DH_USER
+    password:
+      from_secret: DH_PASS
+    repo: jmreicha/debug
+    
