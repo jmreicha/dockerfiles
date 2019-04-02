@@ -23,5 +23,6 @@ RUN apk add --no-cache \
 	iputils \
 	bind-tools \
 	curl \
+	ipvsadm \
 	ca-certificates
 
