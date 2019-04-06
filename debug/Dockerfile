@@ -6,11 +6,8 @@
 #FROM arm64v8/alpine:latest
 FROM alpine:latest
 
-#COPY --from=gcr.io/etcd-development/etcd /usr/local/bin/etcdctl /usr/local/bin/etcdctl
-#COPY --from=bitnami/kubectl /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
-#
-#RUN chmod +x /usr/local/bin/kubectl && \
-#    chmod +x /usr/local/bin/etcdctl
+# Some packages are only availabe in edge/testing
+RUN  apk add cfssl --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
 
 RUN apk add --no-cache \
 	openssl \
@@ -25,4 +22,3 @@ RUN apk add --no-cache \
 	curl \
 	ipvsadm \
 	ca-certificates
-
