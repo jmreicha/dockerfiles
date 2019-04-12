@@ -21,4 +21,6 @@ RUN apk add --no-cache \
 	bind-tools \
 	curl \
 	ipvsadm \
-	ca-certificates
+	ca-certificates \
+	jq \
+	tree
